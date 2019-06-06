@@ -32,12 +32,12 @@ export default StyleSheet.create({
        color: Colors.black
    },
    itemsubheader: {
-    fontSize: 14,
+    fontSize: 13,
     
     color: Colors.black
    },
    itemsubheaderTitle: {
-    fontSize: 14,
+    fontSize: 13,
 //    itemsubheader: {
 //     fontSize: 16,
 //     width: '60%',

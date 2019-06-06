@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, AsyncStorage, TouchableOpacity, Image } from 'react-native';
+import { WebView, ActivityIndicator,TouchableOpacity, Image, } from 'react-native';
 import styles from './Styles';
 import Icon from "react-native-vector-icons/Ionicons";
 import Colors from '../../../Config/Colors';
@@ -35,12 +35,22 @@ export default class Tasks extends React.Component{
     ),
   })
     
-     
+  _loadingView = () => <ActivityIndicator size="large" style={{ flex: 1 }} />;
+
  render(){
     return(
-        <View style={styles.container}>
-      <Image style={styles.imagestyle} source={{uri:this.state.image}}></Image>
-           </View>
+      
+      <WebView
+      source={{ uri: `${this.props.navigation.state.params.url}` }}
+        style={{ backgroundColor: '#fff', flex: 1, }}
+        resizeMode="center"
+        renderLoading={() => this._loadingView()}
+        startInLoadingState
+        onNavigationStateChange={event => {
+          // remove this code
+          this.props = event.action;
+        }}
+      />
        
     )
 }

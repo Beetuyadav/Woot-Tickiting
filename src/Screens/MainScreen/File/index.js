@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, Image} from 'react-native';
+
 import styles from './Styles';
 import Moment from 'moment';
 import { connect } from 'react-redux';

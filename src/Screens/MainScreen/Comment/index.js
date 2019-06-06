@@ -340,7 +340,7 @@ const awsoptions = {
 
      openFile = (uri) => {
       
-      this.props.navigation.navigate('webview', {
+      this.props.navigation.navigate('ImageViewer', {
         url: uri,
       });
      }

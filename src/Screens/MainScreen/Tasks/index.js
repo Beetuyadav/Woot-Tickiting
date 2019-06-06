@@ -174,6 +174,7 @@ class Tasks extends React.Component {
     AsyncStorage.setItem("jobstart_date", start_date);
     AsyncStorage.setItem("jobremarks", remarks);
     AsyncStorage.setItem("jobname", executives);
+    console.warn('PassName:---___',executives);
 
     this.props.navigation.navigate("TaskDetail");
   };
@@ -182,7 +183,7 @@ class Tasks extends React.Component {
   };
   cell = (data, index) => {
     const item = data.cleanData ? data.cleanData : data;
-
+    //  console.warn('TotalItem___',item.executives);
     return (
       <TouchableOpacity
         onPress={() =>
@@ -268,7 +269,7 @@ class Tasks extends React.Component {
                   source={require("../../../Images/user.png")}
                 />
                 <Text style={[styles.itemsubheader, { marginLeft: 10 }]}>
-                  {item.executives.names}
+                {`${item.executives.names[0]} ${item.executives.names[1] ?  `,${item.executives.names[1]}` :''}`}
                 </Text>
               </View>
             </View>

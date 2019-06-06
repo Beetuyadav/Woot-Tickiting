@@ -125,7 +125,7 @@ export default class DetailScreen extends React.Component {
     const jobstart_date=await AsyncStorage.getItem('jobstart_date')
     const jobremarks=await AsyncStorage.getItem('jobremarks')
     const jobname=await AsyncStorage.getItem('jobname')
-
+    console.warn('TestName:---',jobname);
     let jobstatus='';
     console.log(status)
     if(status == 'To Do'){
