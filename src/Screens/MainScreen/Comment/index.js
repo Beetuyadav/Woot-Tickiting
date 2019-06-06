@@ -339,20 +339,7 @@ const awsoptions = {
      }
 
      openFile = (uri) => {
-      // this.props.navigation.navigate('webview',{
-      //   url:uri,
-      // })
-      // try{
-      //   FileViewer.open(uri)
-      //   .then(() => {
-      //     console.log('Success');
-      //   })
-      //   .catch(err => {
-      //     console.log('Error'+err);
-      //   });
-      // } catch(error){
-      //   onsole.log('Error2'+error);
-      // }
+      
       this.props.navigation.navigate('webview', {
         url: uri,
       });

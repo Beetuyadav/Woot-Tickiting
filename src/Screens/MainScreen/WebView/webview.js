@@ -7,7 +7,6 @@ export default class WebViewScreen extends Component {
   static navigationOptions = ({ navigation }) => {
       let titleName;
       titleName = 'WOBOT TICKETING';
-    
     return {
       header: (
         <Toolbar
@@ -37,12 +36,9 @@ export default class WebViewScreen extends Component {
   _loadingView = () => <ActivityIndicator size="large" style={{ flex: 1 }} />;
 
   render() {
-      console.warn('URLDTAA____',url);
-    const { navigation: {getparam} } = this.props;
-    
     return (
       <WebView
-        source={{uri: `${getparam('url')}`}}
+      source={{ uri: `${this.props.navigation.state.params.url}` }}
         style={{ backgroundColor: '#fff', flex: 1 }}
         renderLoading={() => this._loadingView()}
         startInLoadingState

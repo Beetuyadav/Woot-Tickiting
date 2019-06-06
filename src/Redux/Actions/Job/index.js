@@ -44,7 +44,6 @@ export const getJobs = (page,tasktype) => async dispatch =>{
     const WTauthKey= await AsyncStorage.getItem('WTauthKey')
     // const jobType = tasktype === 'Open' ? 0 :1;
 
-    console.warn('Datvvvva___',page, tasktype);
     try {
         dispatch({ type: JOB_REQUEST });
          const url=SERVER_URL;
@@ -54,7 +53,6 @@ export const getJobs = (page,tasktype) => async dispatch =>{
             headers:{'Content-Type': 'application/json'},
             data:{"action":"fetchAllTicketingJobs","appId": WTappId,"authKey": WTauthKey,"page":page,"job_status_type" :tasktype }
         }) ;
-        console.warn('Datvvvva_____', data);
 
         dispatch({
             type: JOB_SUCCESS,

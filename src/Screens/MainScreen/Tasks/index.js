@@ -32,7 +32,7 @@ class Tasks extends React.Component {
   constructor(props){
     super(props);
     const { navigation: { getParam}} = props;
-    console.warn(getParam('taskType'), this.props.getJobs);
+    // console.warn(getParam('taskType'), this.props.getJobs);
   }
   componentWillMount = async () => {
     tasktype = await AsyncStorage.getItem("TaskType");
@@ -63,9 +63,7 @@ class Tasks extends React.Component {
     } = this.props;
     // tasktype = await AsyncStorage.getItem("TaskType");
     if (NetInfo.isConnected) {
-      console.warn('bbb');
       this.props.getJobs(this.state.currentpage, getParam("taskType"));
-      console.warn('ccc');
     } else {
       Toast.show("Please check your connectivity");
     }
