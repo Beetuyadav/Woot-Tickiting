@@ -29,9 +29,9 @@ class Tasks extends React.Component {
     nojobs: 1
   };
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    const { navigation: { getParam}} = props;
+    const { navigation: { getParam } } = props;
     console.warn(getParam('taskType'), this.props.getJobs);
   }
   componentWillMount = async () => {
@@ -146,21 +146,35 @@ class Tasks extends React.Component {
 
   //   this.props.navigation.navigate("TaskDetail", d);
   // };
-  getTasks = (
-    id,
-    status,
-    color,
-    time_status_text,
-    title,
-    region,
-    city,
-    issue,
-    sub_issue,
-    tag,
-    start_date,
-    remarks,
-    executives
-  ) => {
+  getTasks = item => {
+    // item.id,
+    //         item.status,
+    //         item.color,
+    //         item.time_status_text,
+    //         item.title,
+    //         item.region,
+    //         item.city,
+    //         item.issue,
+    //         item.sub_issue,
+    //         item.tag,
+    //         item.start_date,
+    //         item.remarks,
+    //         item.executives.names[0]
+    const { id,
+      status,
+      color,
+      time_status_text,
+      title,
+      region,
+      city,
+      issue,
+      sub_issue,
+      tag,
+      start_date,
+      remarks,
+      executives } = item;
+
+
     console.log(id + " : " + status);
     AsyncStorage.setItem("jobID", id);
     AsyncStorage.setItem("jobstatus", status);
@@ -175,8 +189,9 @@ class Tasks extends React.Component {
     AsyncStorage.setItem("jobtag", tag);
     AsyncStorage.setItem("jobstart_date", start_date);
     AsyncStorage.setItem("jobremarks", remarks);
-    AsyncStorage.setItem("jobname", executives);
+    AsyncStorage.setItem("jobname", executives.names.join(" "));
 
+    // console.log('Logging executives', executives.names.join(" "));
     this.props.navigation.navigate("TaskDetail");
   };
   backHome = () => {
@@ -186,25 +201,7 @@ class Tasks extends React.Component {
     const item = data.cleanData ? data.cleanData : data;
 
     return (
-      <TouchableOpacity
-        onPress={() =>
-          this.getTasks(
-            item.id,
-            item.status,
-            item.color,
-            item.time_status_text,
-            item.title,
-            item.region,
-            item.city,
-            item.issue,
-            item.sub_issue,
-            item.tag,
-            item.start_date,
-            item.remarks,
-            item.executives.names[0]
-          )
-        }
-      >
+      <TouchableOpacity onPress={() => this.getTasks(item)} >
         <View style={styles.itemview}>
           <View style={styles.itemsubview}>
             <View
@@ -270,7 +267,7 @@ class Tasks extends React.Component {
                   source={require("../../../Images/user.png")}
                 />
                 <Text style={[styles.itemsubheader, { marginLeft: 10 }]}>
-                  {item.executives.names}
+                  {item.executives.names.join(" ")}
                 </Text>
               </View>
             </View>

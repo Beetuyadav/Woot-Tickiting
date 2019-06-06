@@ -30,22 +30,23 @@ const configure = () => {
 //Here is the code, we have written before
 //...
 const localNotification = notificationParams => {
-    PushNotification.localNotification({
-        autoCancel: true,
-        largeIcon: "ic_launcher",
-        smallIcon: "ic_notification",
-        bigText: "My big text that will be shown when notification is expanded",
-        subText: "This is a subText",
-        color: "green",
-        vibrate: true,
-        vibration: 300,
-        title: "Notification Title",
-        message: "Notification Message",
-        playSound: true,
-        soundName: 'default',
-        actions: '["Accept", "Reject"]',
-        ...notificationParams,
-    });
+    // PushNotification.localNotification({
+    //     autoCancel: true,
+    //     largeIcon: "ic_launcher",
+    //     smallIcon: "ic_notification",
+    //     bigText: "My big text that will be shown when notification is expanded",
+    //     subText: "This is a subText",
+    //     color: "green",
+    //     vibrate: true,
+    //     vibration: 300,
+    //     title: "Notification Title",
+    //     message: "Notification Message",
+    //     playSound: true,
+    //     soundName: 'default',
+    //     actions: '["Accept", "Reject"]',
+    //     ...notificationParams,
+    // });
+    PushNotification.localNotification(notificationParams);
 };
 
 export {

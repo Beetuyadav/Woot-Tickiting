@@ -8,6 +8,7 @@ import Loader from '../../../Components/Loader';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import axios from 'axios';
 import { SERVER_URL } from '../../../Config/Constants';
+import { pushNotifications } from '../../../services/';
 
 
 export default class AddTicket extends React.Component{
@@ -72,7 +73,8 @@ export default class AddTicket extends React.Component{
                     this.setState({ isFetching: false})
                     console.log(data)
                     if (data.data.status == 1) {
-                        Toast.show(data.data.message)
+                        // Toast.show(data.data.message)
+                        pushNotifications.localNotification({message: 'Job added Successfully'})
                         this.props.navigation.navigate('Home')
                     } else {
                         Toast.show(data.data.message) 
